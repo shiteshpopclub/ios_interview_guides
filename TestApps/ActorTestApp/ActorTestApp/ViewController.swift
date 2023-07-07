@@ -7,6 +7,16 @@
 
 import UIKit
 
+
+public extension  UIResponder {
+    func responderChain() ->String {
+        guard let next = next else {
+            return String(describing: self)
+        }
+        return String(describing: self) + "->" + next.responderChain()
+    }
+}
+
 class ViewController: UIViewController {
 
     @IBOutlet private weak var queueOneLbl: UILabel!

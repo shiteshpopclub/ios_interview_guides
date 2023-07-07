@@ -258,3 +258,128 @@ print(foo(bar))
 //
 //print(Weather.allCases.count)
 */
+
+
+var x: Int? = nil
+x? = 10
+
+var y: Int? = 10
+y? = 5
+
+var z: Int? = nil
+z = 10
+
+print("x: \(x)  y: \(y)  z: \(z)")
+
+
+let x1: String?? = .some(nil)
+let outputX = (x1 ?? "inner") ?? "outer"
+
+let y1: String?? = nil
+let outputY = (y1 ?? "inner") ?? "outer"
+
+print("x1: \(x1)  outputX: \(outputX) y1: \(y1)  outputY: \(outputY)")
+
+
+import Combine
+
+let p = Publishers.Sequence< [Int], Error> (sequence: [1, 4, 8])
+p.append([3, 8, 10]).filter { $0 >= 3 }.count()
+let allEven = p.tryAllSatisfy { $0 % 2 == 0 }
+
+print("allEven.result:: \(allEven.result)")
+
+
+var dict: [String: Int?] = [
+"one": 1,
+"two": 2,
+"none": nil
+]
+var otherDict: [String: Int?] = [
+"one": 1,
+"two": 2,
+"none": nil
+]
+let Dicts = dict
+dict ["two"] = nil
+dict ["none"] = nil
+print(dict.count, Dicts.count, otherDict.count)
+
+
+func check(a: () -> ( )) {
+    func a() {
+        print ("Turing")
+    }
+    
+    a()
+}
+
+func addition(y a: () -> ()) {
+    func y () {
+        print ("Quiz")
+    }
+    
+    y()
+}
+
+check {
+    print ("Swift")
+}
+
+addition {
+    print ("Turing")
+}
+
+
+func getNumber() -> Int {
+    print("Fetching number...")
+    return 5
+}
+
+func printStatement(_ result: @autoclosure () -> Bool) {
+    // print("Here is the number: \(result())")
+    print("Nothing to see here.")
+}
+
+printStatement(getNumber() == 5)
+
+func greet(_ name: String = "Anonymous") {
+    print("Hello, \(name)!")
+}
+
+let greetCopy = greet
+greetCopy("Dave")
+
+var names11 = [String]()
+names11.append("Amy")
+
+let example1 = names11.popLast()
+let example2 = names11.popLast()
+print(example1, example2)
+
+
+enum Planet: Int {
+    case Mercury = 1
+    case Venus
+    case Earth
+    case Mars
+}
+
+let test = Planet(rawValue: 5)
+print(test)
+
+let result12 = UInt8.max.addingReportingOverflow(1)
+print(result12)
+
+let data30: [Any?] = ["Bill", nil, 69, "Ted"]
+
+for datum in data30 where datum is String? {
+    print(datum)
+}
+
+print("**************")
+for case let .some(datum) in data30 where datum is String {
+    print(datum)
+}
+
+
