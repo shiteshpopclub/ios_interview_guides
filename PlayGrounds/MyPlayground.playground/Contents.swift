@@ -383,3 +383,42 @@ for case let .some(datum) in data30 where datum is String {
 }
 
 
+class HTMLElement {
+
+
+    let name: String
+    let text: String?
+
+
+    lazy var asHTML: () -> String = { [weak self] in
+        
+        guard let self else { return "" }
+
+        if let text = self.text {
+            let msg = "<\(self.name)>\(text)</\(self.name)>"
+            print("msg:: \(msg)")
+            return msg
+        } else {
+            print("11111111")
+            return "<\(self.name) />"
+        }
+    }
+
+
+    init(name: String, text: String? = nil) {
+        self.name = name
+        self.text = text
+    }
+
+
+    deinit {
+        print("\(name) is being deinitialized")
+    }
+
+
+}
+
+var html: HTMLElement? = HTMLElement(name: "SHitesh", text: "Patel")
+print("html:: \(html?.asHTML)")
+html = nil
+

@@ -21,13 +21,44 @@ class ViewController: UIViewController {
 
     @IBOutlet private weak var queueOneLbl: UILabel!
     @IBOutlet private weak var queueTwoLbl: UILabel!
+    
+    @IBOutlet weak var clickMeBtn: UIButton!
+    
+    var flag: Bool = false
+    var secondVC: SecondViewController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        testBookFlight()
+//        testBookFlight()
     }
 
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        print(#function)
+        
+        if flag {
+            accessLbl()
+        } else {
+            flag = true
+        }
+    }
+    
+    
+    func accessLbl() {
+        
+        print("secondVC:: \(secondVC)")
+        
+        secondVC?.testLbl.text = "Test lbl text"
+        secondVC?.secondLbl.text = "Label has strong reference"
+        
+//        secondVC = nil
+    }
+    
+    
+    
     func testBookFlight() {
         let flight: Flight = Flight()
 
@@ -54,5 +85,14 @@ class ViewController: UIViewController {
         queueOneLbl.text = company
         queueTwoLbl.text = bookedTicket
     }
+    
+    @IBAction func clickMeDidTapped(_ sender: UIButton) {
+        print(#function)
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        secondVC = storyboard.instantiateViewController(withIdentifier: String(describing: SecondViewController.self)) as? SecondViewController
+        navigationController?.pushViewController(secondVC!, animated: true)
+    }
+    
 }
 
