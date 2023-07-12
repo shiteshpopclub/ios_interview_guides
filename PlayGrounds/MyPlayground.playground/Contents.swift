@@ -422,3 +422,30 @@ var html: HTMLElement? = HTMLElement(name: "SHitesh", text: "Patel")
 print("html:: \(html?.asHTML)")
 html = nil
 
+
+
+
+class BaseClass {
+    func baseClassFun() {
+        print(#function)
+    }
+}
+
+
+
+
+
+class A: BaseClass {
+    
+}
+
+let aa = A()
+aa.baseClassFun()
+aa.classExtensionFun()
+
+
+extension BaseClass {
+    func classExtensionFun() {
+        print(#function)
+    }
+}

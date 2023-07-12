@@ -41,13 +41,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GrS-hR-1BL">
-                                <rect key="frame" x="142.66666666666666" y="388.66666666666669" width="90" height="35"/>
+                                <rect key="frame" x="112.66666666666669" y="388.66666666666669" width="150" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="6yj-gC-8l5"/>
-                                    <constraint firstAttribute="width" constant="90" id="zuZ-F6-ZEB"/>
+                                    <constraint firstAttribute="width" constant="150" id="zuZ-F6-ZEB"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Click Me"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Start Download"/>
                                 <connections>
                                     <action selector="clickMeDidTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UgQ-0J-XPv"/>
                                 </connections>
